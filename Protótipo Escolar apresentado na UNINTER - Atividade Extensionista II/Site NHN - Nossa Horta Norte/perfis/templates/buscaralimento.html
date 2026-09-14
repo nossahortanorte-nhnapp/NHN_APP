@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+
+<form method="POST" action="{% url 'buscar_alimento' %}"
+    class="form-inline my-2 my-lg-0 form-buscalimento">
+    {% csrf_token %}
+    <input class="form-control mr-sm-2" type="search" name="buscalimento" placeholder="Nome do alimento">
+    <button class="btn btn-dark my-2 my-sm-0" type="submit">Encontrar alimento</button>
+</form><br>
+<form method="POST" action="{% url 'buscar_alimento_vtd' %}"
+    class="form-inline my-2 my-lg-0 form-buscalimento">
+    {% csrf_token %}
+    <button class="btn btn-dark mr-sm-2 my-2 my-sm-0" type="submit">Encontrar alimento disponível para</button>
+    <select type="text" class="form-control mr-sm-2" name="buscalimentodisponivelvtd" autofocus>
+        <option value="VENDA" selected="">VENDA</option>
+        <option value="TROCA">TROCA</option>
+        <option value="DOAÇÃO">DOAÇÃO</option>
+    </select>
+</form><br>
+<form class="form-inline my-2 my-lg-0 form-buscalimento">
+    <input class="form-control mr-sm-2" placeholder="Nome do alimento">
+    <button class="btn btn-dark my-1 my-sm-0">Encontrar o alimento mais próximo</button>
+</form><br>
+
+<div class="infinite-container">
+    {% if encontrados %}
+    <ul class="list-group full-w">
+        {% for encontrado in encontrados %}
+        <div class="card post-index my-4 infinite-item" style="max-width: 100%; height: auto;">
+            <div class="card-header" style="{% if encontrado.perfil.imagem_capa %} background: url('/media/{{ encontrado.perfil.imagem_capa }}'); {% else %} background: url('{% static '/media/img/bg01.jpg' %}'); {% endif %} 
+                                                    background-repeat: no-repeat;
+                                                    background-size: cover; 
+                                                    background-position: center;">
+                <img src="{% if encontrado.perfil.imagem_perfil %} /media/{{ encontrado.perfil.imagem_perfil }} {% else %} {% static '/media/img/user.png' %} {% endif %}"
+                    width="72" alt="Usuário" class="img-thumbnail">
+                <img src="{% if encontrado.relacao == 'VENDA' %} {% static '/media/img/sifrao.png' %} {% elif encontrado.relacao == 'TROCA' %} {% static '/media/img/troca.png' %} {% elif encontrado.relacao == 'DOAÇÃO' %} {% static '/media/img/doacao.png' %} {% endif %}" width="72" alt="Usuário" class="img-thumbnail">
+                <p class="text-white">{{ encontrado.perfil.nome }}</p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-white">{{ encontrado.relacao }}</h5>
+                <h5 class="card-title">{{ encontrado.titulo }}</h5>
+                <p class="card-text">
+                    {{ encontrado.text }}
+                    {% if encontrado.imagem %}
+                    <img src="/media/{{ encontrado.imagem }}" alt="Post imagem" class="img-fluid full-w border rounded mt-2">
+                    {% endif %}
+                </p>
+                <p class="card-text">
+                    <small class="text-muted">{{ encontrado.data_postagem }}</small>
+                </p>
+            </div>
+		</div>
+	{% endfor %}
+    </ul>
+</div> 
+        
+
+    {% else %}
+		<div class="full-w alert alert-warning text-center">
+			<h2>Nenhum alimento encontrado com este nome</h2>
+		</div>
+    {% endif %}
+
+
+
+{% if encontrados.has_next %}
+    <a  class="infinite-more-link" href="?page={{ encontrados.next_page_number }}"><!-- <h3>Mostrar mais</h3> --></a>
+{% endif %}
+<div class="d-flex justify-content-center" style="display:none;">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Carregando...</span>
+    </div>
+</div>
+<script src="/static/js/jquery-2.2.4.min.js"></script>
+<script src="/static/js/jquery.waypoints.min.js"></script>
+<script src="/static/js/infinite.min.js"></script>
+<script>
+var infinite = new Waypoint.Infinite({
+    element: $('.infinite-container')[0],
+    handler: function(direction) {
+    
+},
+offset: 'bottom-in-view',
+onBeforePageLoad: function () {
+$('.spinner-border').show();
+},
+onAfterPageLoad: function () {
+$('.spinner-border').hide();
+}
+
+    
+});
+
+</script>
+{% endblock %}

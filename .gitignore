@@ -1,0 +1,6 @@
+# 1. Ignora todos os arquivos .zip no projeto inteiro
+*.zip
+
+# 2. Permite apenas o arquivo .zip específico
+!"14 nhn_nossa_horta_norte com funcionando com pesquisa por VTD.zip"
+!"**/14 nhn_nossa_horta_norte com funcionando com pesquisa por VTD.zip"

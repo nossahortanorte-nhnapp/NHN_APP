@@ -1,0 +1,12 @@
+após apagar o DB
+dá um 
+python manage.py migrate
+python manage.py runserver
+
+
+pip install asgiref==3.4.1
+pip install Django==3.2.8
+pip install Pillow==8.3.2
+pip install pytz==2021.3
+pip install sqlparse==0.4.2
+pip install typing-extensions==3.10.0.2

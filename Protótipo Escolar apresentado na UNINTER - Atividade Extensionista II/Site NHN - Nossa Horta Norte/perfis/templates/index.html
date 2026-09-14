@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+<!-- Área para novas postagens -->
+<div class="container bg-white py-3 border rounded">
+    <form method="POST" action="{% url 'postagem' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <select type="text" name="relacao" class="form-control" autofocus>
+            <option value="VENDA" selected="">VENDA - Alimento disponível para venda</option>
+            <option value="TROCA">TROCA - Alimento disponível para troca</option>
+            <option value="DOAÇÃO">DOAÇÃO - Alimento disponível para doação</option>
+        </select>  
+        <br>
+        <input type="text" name="titulo" class="form-control" placeholder="Titulo"><br>
+        <textarea name="texto" class="form-control" rows="3" placeholder="Escreva o que quiser"></textarea><br>
+        <h6>Anexar uma foto do produto (opcional)</h6>
+        <input name="imagem" type="file" class="form-control-file"><br>
+        <button class="btn btn-dark full-w">Postar</button>
+    </form>
+</div>
+<div class="infinite-container">
+    {% if timeline %}
+    <ul class="list-group full-w">
+        {% for post in timeline %}
+        <div class="card post-index my-4 infinite-item" style="max-width: 100%; height: auto;">
+            <div class="no-gutters">
+                <div class="card-header" style="{% if post.perfil.imagem_capa %} background: url('/media/{{ post.perfil.imagem_capa }}'); {% else %} background: url('{% static '/media/img/bg01.jpg' %}'); {% endif %} 
+                                                        background-repeat: no-repeat;
+                                                        background-size: cover; 
+                                                        background-position: center;">
+                    <img src="{% if post.perfil.imagem_perfil %} /media/{{ post.perfil.imagem_perfil }} {% else %} {% static '/media/img/user.png' %} {% endif %}" width="72" alt="Usuário" class="img-thumbnail">
+                    <img src="{% if post.relacao == 'VENDA' %} {% static '/media/img/sifrao.png' %} {% elif post.relacao == 'TROCA' %} {% static '/media/img/troca.png' %} {% elif post.relacao == 'DOAÇÃO' %} {% static '/media/img/doacao.png' %} {% endif %}" width="72" alt="Usuário" class="img-thumbnail">
+                    <p class="text-white">{{ post.perfil.nome }}</p>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.relacao }}</h5>
+                    <h5 class="card-title">{{ post.titulo }}</h5>
+                    <p class="card-text">
+                        {{ post.text }}
+                        {% if post.imagem %}
+                        <img src="/media/{{ post.imagem }}" alt="Post imagem" class="img-fluid full-w border rounded mt-2">
+                        {% endif %}
+                    </p>
+                    <p class="card-text"><small class="text-muted">{{ post.data_postagem }}</small>
+                        {% if perfil_logado.usuario.is_superuser or post.perfil == perfil_logado %}
+                        <a class="btn btn-danger text-white float-right" href="{% url 'delete_postagem' post.id %}">Deletar</a>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </ul>
+{% endfor %}
+</div>
+
+{% if timeline.has_next %}
+    <a  class="infinite-more-link" href="?page={{ timeline.next_page_number }}"><!-- <h3>Mostrar mais</h3> --></a>
+{% endif %}
+<!-- 
+<nav aria-label="Page navigation full-w bg-dark">
+    <ul class="pagination justify-content-center">
+        {% if timeline.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?pagina={{ timeline.previous_page_number }}">Anterior</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true">Anterior</a>
+        </li>
+        {% endif %}
+
+        {% if timeline.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?pagina={{ timeline.next_page_number }}">Próximo</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a tabindex="-1" aria-disabled="true" class="page-link">Próximo</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+-->
+
+<div class="d-flex justify-content-center" style="display:none;">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Carregando...</span>
+    </div>
+</div>
+<script src="/static/js/jquery-2.2.4.min.js"></script>
+<script src="/static/js/jquery.waypoints.min.js"></script>
+<script src="/static/js/infinite.min.js"></script>
+<script>
+var infinite = new Waypoint.Infinite({
+    element: $('.infinite-container')[0],
+    handler: function(direction) {
+    
+},
+offset: 'bottom-in-view',
+onBeforePageLoad: function () {
+$('.spinner-border').show();
+},
+onAfterPageLoad: function () {
+$('.spinner-border').hide();
+}
+
+    
+});
+
+</script>
+
+{% endif %}
+
+{% endblock %}

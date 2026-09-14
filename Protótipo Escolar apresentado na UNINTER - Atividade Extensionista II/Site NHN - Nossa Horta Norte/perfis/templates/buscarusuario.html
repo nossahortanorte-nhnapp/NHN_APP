@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+
+<form method="POST" action="{% url 'buscar_usuario' %}"
+    class="form-inline my-2 my-lg-0 form-busca-usuario">
+    {% csrf_token %}
+    <input class="form-control mr-sm-2" type="search" name="busca" placeholder="Nome do usuário">
+    <button class="btn btn-dark my-2 my-sm-0" type="submit">Buscar Usuário</button>
+</form><br>
+
+<div>
+    {% if encontrados %}
+    <ul class="list-group full-w">
+        {% for encontrado in encontrados %}
+        {% if encontrado.id != user.perfil.id %}
+        {% if encontrado in user.perfil.contatos.all %}
+
+        <div class="row border rounded mb-3 py-2 px-2 bg-white">
+            <div class="col col-md-3 py-5"
+                style="background:  {% if encontrado.imagem_perfil %} url('/media/{{ encontrado.imagem_perfil }}') {% else %} url('{% static 'media/img/user.png' %}') {% endif %} ;
+                        background-position: center;
+                        background-size: cover;
+                        border-radius: 5px;"></div>
+            <div class="col col-md-9 bg-white py-4">
+                <p>{{ encontrado.nome }}</p>
+                <div>
+                    <a href="{% url 'exibir' encontrado.id %}" class="btn btn-info">Acessar</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+
+        <div class="row border rounded mb-3 py-2 px-2 bg-white">
+            <div class="col col-md-3 py-5"
+            style="background:  {% if encontrado.imagem_perfil %} url('/media/{{ encontrado.imagem_perfil }}') {% else %} url('{% static 'media/img/user.png' %}') {% endif %};
+            background-position: center;
+            background-size: cover;
+            border-radius: 5px;"    >
+            </div>
+            <div class="col col-md-9 bg-white py-4">
+                <p>{{ encontrado.nome }}</p>
+                <div>
+                    <a href="{% url 'exibir' encontrado.id %}" class="btn btn-info">Acessar</a>
+                    <!-- <a href="{% url 'convidar' encontrado.id %}" class="btn btn-success">Enviar solicitação</a> -->
+                    <a href="#" class="btn btn-success">Seguir</a>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+    {% else %}
+    <div class="full-w alert alert-warning text-center">
+        <h2>Nenhum resultado encontrado</h2>
+    </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}
