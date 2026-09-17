@@ -1,0 +1,205 @@
+/*
+ * NHN_APP — Conectando Produtores e Consumidores de Orgânicos In-Natura
+ * Copyright (C) 2023–2026 Enio Alves Borges & Colaboradores do Projeto NHN_APP
+ *
+ * Este programa é um software livre; você pode redistribuí-lo e/ou modificá-lo
+ * sob os termos da Licença Pública Geral GNU Affero (GNU AGPLv3) conforme publicada
+ * pela Free Software Foundation, versão 3 da Licença.
+ *
+ * Este programa é distribuído na expectativa de ser útil, mas SEM QUALQUER
+ * GARANTIA; sem mesmo a garantia implícita de COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM
+ * PROPÓSITO EM PARTICULAR. Veja a Licença Pública Geral GNU Affero para mais detalhes.
+ *
+ * Você deve ter recebido uma cópia da Licença Pública Geral GNU Affero junto com
+ * este programa. Se não, veja <https://www.gnu.org/licenses/>.
+ */
+
+/* profile_details.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Centraliza o container principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 81px !important;
+    width: 100%;
+    margin: 0 auto; /* Centraliza o container na página */
+    background-color: #540980; /* Cor de fundo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding-top: 60px;
+}
+
+/* Centraliza o conteúdo dentro do contêiner da imagem */
+.profile-container-profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Garante que o texto também esteja centralizado */
+    width: 100%;
+    max-width: 800px;
+    background-color: #ff4aff;
+    padding: 40px;
+    box-shadow: 0 0 10px rgb(174, 0, 255);
+    border-radius: 8px;
+}
+
+
+.search-input-profile-details {
+  width: 90%;
+  flex-grow: 1;  
+  position: fixed;
+  top: 72px;
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%);
+  max-width: 533.33px; /* Reduziu para dois terços do tamanho original (800px) */
+  background-color: #f2f2f2; /* Fundo claro */
+  box-shadow: 0 2px 10px rgba(43, 255, 0, 0.5); /* Sombra com cor verde */
+  z-index: 1001; /* Certifique-se de que o campo esteja acima de outros elementos, mas abaixo do link de voltar */
+  border: 2px solid #9900ff; /* Borda roxa */
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none; /* Remove o contorno padrão ao focar */
+}
+  
+  .search-input-profile-details::placeholder {
+    color: #9900ff; /* Cor do texto do placeholder */
+    opacity: 0.7; /* Levemente transparente */
+  }
+  
+  .search-input-profile-details:focus {
+    background-color: #fff; /* Muda para branco ao focar */
+    border-color: #2bff00; /* Muda a borda para verde ao focar */
+    box-shadow: 0 2px 12px rgba(43, 255, 0, 0.7); /* Intensifica a sombra ao focar */
+  }
+
+/* Estilo para o link de voltar */
+.back-link {
+  margin-right: 20px; /* Espaçamento entre o link de voltar e o campo de busca */
+  color: #2bff00;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  position: fixed;
+  top: 72px;
+  left: auto; /* Alinha o link à esquerda */
+  z-index: 1002; /* Certifique-se de que o link de voltar esteja acima do campo de busca */
+}
+
+.fixed-top-container {
+  display: flex;
+  align-items: center; /* Alinha verticalmente ao centro */
+  justify-content: flex-start; /* Garante que o link fique à esquerda */
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  padding: 10px;
+  position: fixed;
+}
+
+/* Estilo da imagem do perfil */
+.profile-img-avatar {
+    display: block; /* Remove qualquer espaço extra ao redor da imagem */
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+    width: 100px;
+    height: 100px; /* Mantém a proporção da imagem */
+    margin-top: 10px; /* Espaçamento superior */
+    object-fit: cover; /* Mantém o aspecto da imagem */
+    border-radius: 50%; /* Faz a imagem ficar redonda */
+    margin-bottom: 25px; /* Adiciona espaço abaixo da imagem */
+}
+
+.alimentos-link, .seguindo-link, .seguidores-link {
+    text-decoration: none;
+    text-align: center;
+}
+
+.alimentos-info, .seguindo-info, .seguidores-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.alimentos-info span, .seguindo-info span, .seguidores-info span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Centraliza a seção de posts */
+.posts-container {
+    width: 100%;
+    max-width: 1200px; /* Ajuste conforme necessário */
+    margin-top: 40px;
+}
+
+/* Layout em grid para as postagens */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas para o layout das postagens */
+    gap: 16px;
+}
+
+/* Estilo para cada item de postagem */
+.post-item {
+    display: block;
+    width: 100%; /* Garante que as imagens preencham o item */
+}
+
+/* Estilo para as imagens das postagens */
+.post-image {
+    border-radius: 8px; /* Bordas arredondadas */
+    width: 100%; /* Garante que as imagens preencham o item */
+    height: auto; /* Mantém a proporção */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
+    transition: transform 0.3s ease; /* Efeito de transição para o hover */
+}
+
+/* Efeito de zoom ao passar o mouse */
+.post-image:hover {
+    transform: scale(1.05);
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #7700ffd5; /* Fundo escuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Certifique-se de que o modal esteja acima de outros elementos */
+  }
+  
+  .modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+  }
+  
+  .modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Opcional: adicionar um botão de fechar */
+  .modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: rgb(255, 0, 0);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  

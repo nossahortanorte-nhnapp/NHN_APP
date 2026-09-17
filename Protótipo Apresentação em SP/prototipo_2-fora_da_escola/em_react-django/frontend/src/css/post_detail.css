@@ -1,0 +1,138 @@
+/*
+ * NHN_APP — Conectando Produtores e Consumidores de Orgânicos In-Natura
+ * Copyright (C) 2023–2026 Enio Alves Borges & Colaboradores do Projeto NHN_APP
+ *
+ * Este programa é um software livre; você pode redistribuí-lo e/ou modificá-lo
+ * sob os termos da Licença Pública Geral GNU Affero (GNU AGPLv3) conforme publicada
+ * pela Free Software Foundation, versão 3 da Licença.
+ *
+ * Este programa é distribuído na expectativa de ser útil, mas SEM QUALQUER
+ * GARANTIA; sem mesmo a garantia implícita de COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM
+ * PROPÓSITO EM PARTICULAR. Veja a Licença Pública Geral GNU Affero para mais detalhes.
+ *
+ * Você deve ter recebido uma cópia da Licença Pública Geral GNU Affero junto com
+ * este programa. Se não, veja <https://www.gnu.org/licenses/>.
+ */
+
+/* profile_details.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.post-detail-container {
+    padding: 20px;
+    background-color: #540980;
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative; /* Necessário para posicionar o menu suspenso */
+}
+
+.full-width {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.post-date {
+    color: #000000;
+    font-size: 0.9em; /* Pode ajustar o tamanho da fonte para melhor estilo */
+    text-align: right; /* Certifique-se de que o texto está alinhado à direita */
+}
+
+
+.post-text-container {
+    display: flex;
+    flex-direction: column; /* Coloca o conteúdo em coluna, um abaixo do outro */
+    align-items: flex-start; /* Alinha o texto à esquerda */
+    margin-top: 10px; /* Adiciona um espaço entre o nome do perfil e o texto */
+}
+
+.profile_name-link {
+    font-weight: bold;
+    color: #0004ff; /* Azul para destacar o nome do perfil */
+    text-decoration: none; /* Remove o sublinhado */
+    margin-bottom: 5px; /* Espaço entre o nome do perfil e o texto do post */
+}
+
+.profile_name-link:hover {
+    text-decoration: underline; /* Sublinhado ao passar o mouse */
+}
+
+.post-text {
+    color: #000000;
+    font-size: 1em;
+    line-height: 1.5;
+    white-space: pre-wrap; /* Preserva quebras de linha e espaços */
+    word-wrap: break-word; /* Quebra palavras longas */
+    width: 789px; /* Define a largura para que o texto tenha cerca de 93 caracteres por linha */
+    max-width: 100%; /* Garante que o texto não exceda a largura do contêiner */
+    margin-top: 5px;
+}
+
+
+
+
+/* Garantir que o botão dos três pontinhos está corretamente posicionado */
+.post-options-button {
+    position: relative;
+    font-size: 1.5em;
+    color: #fff;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+/* Estilo do menu suspenso */
+.dropdown-menu {
+    position: absolute;
+    top: 42px; /* Posiciona o menu suspenso abaixo dos três pontinhos */
+    right: 0; /* Alinha o menu à direita do botão */
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo preto transparente */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2000; /* Garante que o menu fique acima de outros elementos */
+    width: 162px; /* Largura fixa do menu suspenso */
+    padding: 0;
+    display: flex; /* Exibe o menu como flexbox */
+    flex-direction: column; /* Coloca os links em coluna */
+}
+
+
+/* Ajuste para a lista não ordenada */
+.dropdown-menu ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Garante que o ul ocupe 100% da largura do dropdown */
+}
+
+/* Estilo dos itens da lista */
+.dropdown-menu li {
+    width: 100%; /* Garante que cada item ocupe 100% da largura do menu */
+}
+
+/* Estilo dos links dentro dos itens */
+.dropdown-menu li a {
+    display: block; /* Garante que cada link ocupe uma linha inteira */
+    padding: 10px;
+    text-align: left; /* Alinha o texto dos links à esquerda */
+    color: #51ff00; /* Cor do texto branco */
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease;
+    width: 100%; /* O link ocupará toda a largura do item */
+}
+
+/* Efeito de hover nos links */
+.dropdown-menu li a:hover {
+    background-color: rgba(153, 0, 255, 0.2); /* Fundo claro ao passar o mouse */
+}

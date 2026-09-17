@@ -1,0 +1,601 @@
+/*
+ * NHN_APP — Conectando Produtores e Consumidores de Orgânicos In-Natura
+ * Copyright (C) 2023–2026 Enio Alves Borges & Colaboradores do Projeto NHN_APP
+ *
+ * Este programa é um software livre; você pode redistribuí-lo e/ou modificá-lo
+ * sob os termos da Licença Pública Geral GNU Affero (GNU AGPLv3) conforme publicada
+ * pela Free Software Foundation, versão 3 da Licença.
+ *
+ * Este programa é distribuído na expectativa de ser útil, mas SEM QUALQUER
+ * GARANTIA; sem mesmo a garantia implícita de COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM
+ * PROPÓSITO EM PARTICULAR. Veja a Licença Pública Geral GNU Affero para mais detalhes.
+ *
+ * Você deve ter recebido uma cópia da Licença Pública Geral GNU Affero junto com
+ * este programa. Se não, veja <https://www.gnu.org/licenses/>.
+ */
+
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  --color-bg: #4b20c29f;
+  --color-bg-variant: #f93dff6e;
+  --color-primary: #33ff00;
+  /* Blue */
+  --color-primary-variant: #33ff00;
+  /* Darker Blue */
+  --color-accent: #ff4500;
+  /* Orange-Red */
+  --color-accent-variant: #cc3700;
+  /* Darker Orange-Red */
+  --color-white: #fff;
+  --color-light: #f8f8f8;
+  /* Light Gray */
+
+  --transition: all 400ms ease;
+
+  --container-width-lg: 75%;
+  --container-width-md: 86%;
+  --container-width-sm: 90%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-white);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+/* ============ GENERAL STYLES ============ */
+
+.container {
+  width: 100%;
+  margin: 0 auto; /* Centraliza o container na página */
+  padding: 20px; /* Espaçamento interno */
+  background-color: #5300a0; /* Cor de fundo */
+  box-shadow: 0 0 10px #0000001a; /* Sombra leve */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding-top: 60px;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+section {
+  margin-top: 8rem;
+}
+
+section>h2,
+section>h5 {
+  text-align: center;
+  color: var(--color-light);
+}
+
+section>h2 {
+  color: var(--color-primary);
+  margin-bottom: 3rem;
+}
+
+.text-light {
+  color: rgb(--color-light);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: 1px orange;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-secondary {
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* Additional styles for hover/focus effects */
+.btn:hover,
+.btn:focus {
+  opacity: 0.8;
+  outline: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-primary-variant);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-accent:hover,
+.btn-accent:focus {
+  background-color: var(--color-accent-variant);
+}
+
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+/* ============ MEDIA QUERIES (MEDIUM DEVICES) ============ */
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: var(--container-width-md);
+  }
+
+  section {
+    margin-top: 6rem;
+  }
+}
+
+
+/* ============ MEDIA QUERIES (SMALL DEVICES) ============ */
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: var(--container-width-sm);
+  }
+
+  section>h2 {
+    margin-bottom: 2rem;
+  }
+}
+
+
+/* ============ HOME PAGE ============ */
+
+
+.main__title {
+  font-size: 3rem;
+  color: var(--color-primary);
+  text-align: center;
+  margin-top: 4rem;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 5rem;
+    margin-top: 6rem;
+  }
+
+}
+
+.home__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 20rem;
+
+  @media screen and (min-width: 1200px) {
+    .btn {
+      font-size: 1.5rem;
+    }
+
+    gap: 7rem;
+    margin-top: 15rem;
+  }
+}
+
+
+
+/* ============ NAV ============ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px; 
+  background-color: #9900ff5d; 
+  padding: 10px 20px;
+  box-shadow: 0 2px 10px #2bff00;
+  z-index: 1000; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-childs {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-childs:hover {
+  color: #2bff00;
+}
+
+.menu-button {
+  cursor: pointer;
+  color: #fff;
+  margin-left: 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu-button:hover {
+  color: #2bff00;
+}
+
+.hidden-links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px; 
+  right: 0; 
+  background-color: #9900ff5d;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px #2bff00;
+  z-index: 2001; /* Ajuste o z-index para garantir que o menu esteja na frente */
+}
+
+
+
+.logo img {
+  max-height: 45px;
+  max-width: 45px;
+}
+
+
+
+/* ============ Auth pages (Login, Register, Reset) ============ */
+
+.auth__form {
+  background-color: var(--color-bg-variant);
+  margin: auto;
+  padding: 30px;
+  border-radius: 5px;
+  width: var(--container-width-md);
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth__form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-light);
+  color: var(--color-bg-variant);
+
+  &::placeholder {
+    font-size: 1rem;
+    color: var(--color-bg-variant);
+  }
+
+  &:valid {
+    font-size: 1rem;
+    color: var(--color-bg-variant);
+  }
+}
+
+
+.auth__container .main__title {
+  font-size: 3rem;
+
+  @media screen and (min-width: 1200px) {
+    margin: 3rem 0;
+  }
+}
+
+.auth__container .main__title {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth__container .main__title svg {
+  margin-left: 10px;
+  /* Add some space between the icon and the text */
+}
+
+.btn-activate-account {
+  margin: auto;
+  display: block;
+  margin-top: 5rem;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+
+
+
+
+
+
+/* ============ COMPONENTS ============ */
+
+
+/* ============ Spinner ============ */
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 4px solid rgba(248, 0, 0, 0.1);
+  border-top: 4px solid var(--color-primary);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* styles.css */
+.profile-img-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover; /* Mantém o aspecto da imagem */
+  border-radius: 50%; /* Faz a imagem ficar redonda */
+  margin-bottom: 25px; /* Adiciona espaço abaixo da imagem */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #00000000;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #ea08ff4d;
+}
+tr:nth-child(even) {
+  background-color: #ea08ff71;
+}
+
+/* Postagens de Alimentos Profile
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(369px, 1fr));
+  gap: 10px;
+} */
+
+.post-item {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.post-image {
+  width: 100%;
+  height: 369px; /* Altura fixa para todas as imagens */
+  object-fit: cover; /* Ajusta a imagem para cobrir a área */
+  display: block;
+}
+
+
+
+/* Estilo para a lista de perfis seguidos e seguidores */
+.profile-list-item-following, .profile-list-item-followers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Garante que o botão e os detalhes fiquem nas extremidades */
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  background-color: #ff6eff; /* Cor de fundo para os itens */
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  position: relative;
+  width: 100%; /* Certifica-se de que ocupa 100% da largura do contêiner pai */
+  box-sizing: border-box; /* Inclui o padding dentro da largura total */
+}
+
+/* Cores alternadas para os itens do grid */
+.profile-list-item-following:nth-child(odd) {
+  background-color: #ff21ff; /* Cor para itens ímpares */
+}
+
+.profile-list-item-following:nth-child(even) {
+  background-color: #ff6eff; /* Cor para itens pares */
+}
+
+/* Cores alternadas para os itens do grid */
+.profile-list-item-followers:nth-child(odd) {
+  background-color: #ff21ff; /* Cor para itens ímpares */
+}
+
+.profile-list-item-followers:nth-child(even) {
+  background-color: #ff6eff; /* Cor para itens pares */
+}
+
+
+.search-input-profile-following, .search-input-profile-followers {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px; /* Adiciona uma margem superior maior para mover o campo de busca mais abaixo */
+  margin-bottom: 15px; /* Espaçamento inferior opcional, se necessário */
+  box-sizing: border-box;
+}
+
+/* Alinhamento do botão de seguir */
+.follow-container {
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.follow-container-profile {
+  display: flex;
+  position: relative;
+  top: 10px;
+  right: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Botão de seguir */
+.follow-button {
+  background-color: #00ff2abd;
+  color: #8400ff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.follow-button:hover {
+  background-color: #00ff2a;
+}
+
+.unfollow-button {
+  background-color: #8400ff;
+  color: #00ff2a;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.following-button {
+  background-color: #ff0000;
+  color: #001aff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.following-button:hover {
+  background-color: #cc0000;
+  color: #0033cc;
+}
+
+/* Ajuste o espaçamento e a largura das imagens dentro dos itens */
+.profile-img-avatar-following, .profile-img-avatar-followers {
+  width: 100px; /* Ajuste o tamanho da imagem conforme necessário */
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+/* Links de navegação (Alimentos, Seguindo, Seguidores) */
+.links-container {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* Estilo da grid de seguidores com max-width */
+.profile-list-grid-followers, .profile-list-grid-following {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  text-align: center; /* Garante que o texto também esteja centralizado */
+  width: 100%;
+  max-width: 800px;
+  background-color: #ff4aff;
+  padding: 9px;
+  box-shadow: 0 0 10px rgb(174, 0, 255);
+  border-radius: 8px;
+}
+
+.followed-profiles {
+  width: 100%;
+  max-width: 800px;
+  padding: 0;
+  margin: 0 auto; /* Centraliza o conteúdo dentro da largura máxima */
+  box-sizing: border-box;
+}
+
+.profile-details-following, .profile-details-followers {
+  flex-grow: 1; /* Permite que o conteúdo ocupe o espaço restante */
+  text-align: left;
+}

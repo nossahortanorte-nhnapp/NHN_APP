@@ -1,0 +1,76 @@
+/*
+ * NHN_APP — Conectando Produtores e Consumidores de Orgânicos In-Natura
+ * Copyright (C) 2023–2026 Enio Alves Borges & Colaboradores do Projeto NHN_APP
+ *
+ * Este programa é um software livre; você pode redistribuí-lo e/ou modificá-lo
+ * sob os termos da Licença Pública Geral GNU Affero (GNU AGPLv3) conforme publicada
+ * pela Free Software Foundation, versão 3 da Licença.
+ *
+ * Este programa é distribuído na expectativa de ser útil, mas SEM QUALQUER
+ * GARANTIA; sem mesmo a garantia implícita de COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM
+ * PROPÓSITO EM PARTICULAR. Veja a Licença Pública Geral GNU Affero para mais detalhes.
+ *
+ * Você deve ter recebido uma cópia da Licença Pública Geral GNU Affero junto com
+ * este programa. Se não, veja <https://www.gnu.org/licenses/>.
+ */
+
+/* post_create.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+/* Formulario de postagem */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #9900ff5d; /* Cor de fundo opcional para o container */
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #eb54ff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input-title {
+    width: 100%; /* Ajusta a largura do campo para ocupar 100% do contêiner pai */
+    max-width: 600px; /* Define uma largura máxima para o campo de entrada */
+    padding: 8px; /* Adiciona algum padding interno */
+    font-size: 16px; /* Ajusta o tamanho da fonte, se necessário */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura total */
+    border-radius: 8px; /* Arredonda os cantos do campo de entrada */
+    border: 1px solid #ccc; /* Adiciona uma borda para melhor visualização */
+  }
+  
+  .textarea-description {
+    width: 100%; /* Ajusta a largura do campo para ocupar 100% do contêiner pai */
+    max-width: 800px; /* Define uma largura máxima para o campo */
+    height: 200px; /* Ajusta a altura do campo */
+    padding: 12px; /* Adiciona algum padding interno */
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura total */
+    resize: vertical; /* Permite que o usuário redimensione o campo apenas verticalmente */
+    border-radius: 8px; /* Arredonda os cantos do campo de texto */
+    border: 1px solid #ccc; /* Adiciona uma borda para melhor visualização */
+  }
+  
+  .checkbox-container {
+    display: flex;
+    justify-content: space-around; /* Espaçamento uniforme ao redor dos itens */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte se necessário */
+  }
+  
+  .checkbox-container label {
+    display: flex;
+    align-items: center; /* Alinha o ícone e o texto verticalmente no centro */
+    margin: 10px; /* Espaço entre os itens */
+  }
+  
+  .checkbox-container img {
+    margin-right: 8px; /* Espaço entre a imagem e o texto */
+  }

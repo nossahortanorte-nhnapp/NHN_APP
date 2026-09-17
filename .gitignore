@@ -4,3 +4,26 @@
 # 2. Permite apenas o arquivo .zip específico
 !"14 nhn_nossa_horta_norte com funcionando com pesquisa por VTD.zip"
 !"**/14 nhn_nossa_horta_norte com funcionando com pesquisa por VTD.zip"
+
+# Django (Python)
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+db.sqlite3
+.env
+
+# React (Node / Vite)
+node_modules/
+dist/
+dist-ssr
+*.local
+.eslintcache
+
+# Sistema e Diversos
+.DS_Store
+Thumbs.db
+

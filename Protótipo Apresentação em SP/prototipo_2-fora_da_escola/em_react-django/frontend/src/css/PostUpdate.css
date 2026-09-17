@@ -1,0 +1,160 @@
+/*
+ * NHN_APP — Conectando Produtores e Consumidores de Orgânicos In-Natura
+ * Copyright (C) 2023–2026 Enio Alves Borges & Colaboradores do Projeto NHN_APP
+ *
+ * Este programa é um software livre; você pode redistribuí-lo e/ou modificá-lo
+ * sob os termos da Licença Pública Geral GNU Affero (GNU AGPLv3) conforme publicada
+ * pela Free Software Foundation, versão 3 da Licença.
+ *
+ * Este programa é distribuído na expectativa de ser útil, mas SEM QUALQUER
+ * GARANTIA; sem mesmo a garantia implícita de COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM
+ * PROPÓSITO EM PARTICULAR. Veja a Licença Pública Geral GNU Affero para mais detalhes.
+ *
+ * Você deve ter recebido uma cópia da Licença Pública Geral GNU Affero junto com
+ * este programa. Se não, veja <https://www.gnu.org/licenses/>.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+.post-update-container {
+    width: 800px;
+    padding: 20px;
+    background-color: #ff4aff;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 81px auto 0 auto; /* Adiciona 50px de margem superior */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 800px; 
+    max-width: 1200px
+}
+
+label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.textarea {
+    width: 95% !important; /* Garante que ocupe 100% da largura do contêiner pai */
+    max-width: 800px !important; /* Define uma largura máxima */
+    height: 100px !important; /* Aumenta a altura do textarea */
+    border-radius: 5px;
+    resize: vertical;
+    border: 1px solid #540980;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-update {
+    background-color: #4caf50;
+    color: #540980;
+    margin-right: 10px;
+}
+
+.btn-cancel {
+    background-color: #ff5252;
+    color: #540980;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: -27px;
+}
+
+/* Estilos da imagem no post */
+.imagePost {
+    width: 137px;
+    height: 137px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos do modal */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000; /* Garante que o modal fique acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #7700ffd5; /* Fundo escuro semi-transparente */
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ajusta a imagem sem distorção */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.checkbox-container {
+    margin-top: -30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.checkbox-container-label {
+    display: flex;
+    flex-direction: column; /* Coloca a imagem acima do texto e checkbox */
+    align-items: center;
+    margin-top: 10px; /* Ajuste a margem superior se necessário */
+    font-family: 'Poppins', sans-serif;
+}
+
+.checkbox-container-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-bottom: 8px; /* Espaço entre a imagem e o texto */
+}
+
+

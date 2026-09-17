@@ -1,0 +1,249 @@
+/*
+ * NHN_APP — Conectando Produtores e Consumidores de Orgânicos In-Natura
+ * Copyright (C) 2023–2026 Enio Alves Borges & Colaboradores do Projeto NHN_APP
+ *
+ * Este programa é um software livre; você pode redistribuí-lo e/ou modificá-lo
+ * sob os termos da Licença Pública Geral GNU Affero (GNU AGPLv3) conforme publicada
+ * pela Free Software Foundation, versão 3 da Licença.
+ *
+ * Este programa é distribuído na expectativa de ser útil, mas SEM QUALQUER
+ * GARANTIA; sem mesmo a garantia implícita de COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM
+ * PROPÓSITO EM PARTICULAR. Veja a Licença Pública Geral GNU Affero para mais detalhes.
+ *
+ * Você deve ter recebido uma cópia da Licença Pública Geral GNU Affero junto com
+ * este programa. Se não, veja <https://www.gnu.org/licenses/>.
+ */
+
+/* post_list.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Centraliza o contêiner principal */
+.profile-container-post-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px; /* Limita a largura máxima do contêiner */
+    margin: 0 auto; /* Centraliza horizontalmente o contêiner */
+    padding: 20px; /* Adiciona um espaçamento interno */
+    text-align: center; /* Centraliza o conteúdo do texto */
+}
+
+/* Estilo da imagem do perfil */
+.profile-img-avatar {
+    display: block; /* Remove qualquer espaço extra ao redor da imagem */
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+    width: 100px;
+    height: 100px; /* Mantém a proporção da imagem */
+    margin-top: 10px; /* Espaçamento superior */
+    object-fit: cover; /* Mantém o aspecto da imagem */
+    border-radius: 50%; /* Faz a imagem ficar redonda */
+    margin-bottom: 25px; /* Adiciona espaço abaixo da imagem */
+}
+
+/* Centraliza a seção de posts */
+.posts-container {
+  width: 100%;
+  max-width: 1200px; /* Ajuste conforme necessário para o seu design */
+  margin: 100px auto 20 auto; /* Aumenta a margem superior para 50px */
+  background-color: #540980;
+  padding-top: 30px; /* Mantém o padding interno no topo */
+}
+
+.search-input-post-list {
+  position: fixed;
+  top: 135px; /* Ajuste conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 53.33%; /* Reduziu para dois terços do tamanho original (80%) */
+  max-width: 533.33px; /* Reduziu para dois terços do tamanho original (800px) */
+  background-color: #f2f2f2; /* Fundo claro */
+  padding: 10px 20px;
+  box-shadow: 0 2px 10px rgba(43, 255, 0, 0.5); /* Sombra com cor verde */
+  z-index: 1001; /* Certifique-se de que o campo esteja acima de outros elementos */
+  border: 2px solid #9900ff; /* Borda roxa */
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none; /* Remove o contorno padrão ao focar */
+}
+
+.search-input-post-list::placeholder {
+  color: #9900ff; /* Cor do texto do placeholder */
+  opacity: 0.7; /* Levemente transparente */
+}
+
+.search-input-post-list:focus {
+  background-color: #fff; /* Muda para branco ao focar */
+  border-color: #2bff00; /* Muda a borda para verde ao focar */
+  box-shadow: 0 2px 12px rgba(43, 255, 0, 0.7); /* Intensifica a sombra ao focar */
+}
+
+/* Estilo para o layout em lista com uma coluna */
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Espaçamento entre os itens da lista */
+    margin: 0 auto; /* Centraliza a lista dentro do contêiner */
+}
+
+/* Estilo para cada item de post */
+.post-item {
+  display: flex;
+  flex-direction: column; /* Alinha os itens verticalmente */
+  align-items: flex-start; /* Alinha os itens ao início do contêiner */
+  /* margin: 10px auto; Centraliza horizontalmente com espaçamento superior e inferior */
+  width: 789px; /* Define a largura fixa */
+  background-color: #ff4aff; /* Cor de fundo opcional para o item de post */
+  padding: 16px; /* Espaçamento interno opcional */
+  border-radius: 39px; /* Bordas arredondadas opcionais */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve opcional */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Estilo para as imagens dos posts */
+.full-width {
+    width: 789px; /* Define a largura fixa da imagem */
+    height: 789px; /* Define a altura fixa da imagem */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
+    display: block; /* Remove qualquer espaço extra ao redor da imagem */
+    margin: 0 auto; /* Centraliza a imagem dentro do contêiner */
+}
+
+/* Estilo para as imagens de perfil */
+.profile-image {
+    margin-right: 10px;
+    width: 50px; /* Ajuste conforme necessário */
+    height: 50px; /* Ajuste conforme necessário */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
+    border-radius: 50%; /* Faz a imagem ficar redonda */
+}
+
+/* Estilo para as opções do post */
+.post-options {
+    display: flex;
+    gap: 10px; /* Espaçamento entre as opções */
+    margin: 10px 0; /* Espaçamento acima e abaixo das opções */
+}
+
+/* Estilo para as imagens das opções */
+.option-image {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    margin-right: 5px;
+}
+
+/* Estilo para o título do post */
+.post-title {
+  font-size: 3em; /* Ajuste conforme necessário */
+  font-weight: bold; /* Ajuste conforme necessário */
+  margin-bottom: 10px; /* Espaçamento abaixo do título */
+}
+
+
+.post-date {
+  margin-top: 10px;
+  margin-bottom: 10px; /* Espaçamento abaixo dos elementos */
+  color: #2bff00 !important;
+}
+
+.post-text-container {
+  display: block; /* Garante que os itens fiquem em blocos, um abaixo do outro */
+  align-items: flex-start; /* Alinha à esquerda */
+  margin-top: 10px; /* Espaço entre o nome do perfil e o texto */
+}
+
+.profile_name-link {
+  font-weight: bold;
+  color: #0004ff; /* Cor azul para o nome do perfil */
+  text-decoration: none;
+  margin-bottom: 5px; /* Espaço entre o nome e o texto */
+}
+
+.profile_name-link:hover {
+  text-decoration: underline; /* Sublinhado ao passar o mouse */
+}
+
+.post-text {
+  color: #000000;
+  font-size: 1em;
+  line-height: 1.5 !important; /* Define o espaçamento entre linhas */
+  white-space: pre-wrap; /* Preserva as quebras de linha e espaços */
+  word-wrap: break-word; /* Quebra palavras longas */
+  width: 100%; /* Garante que o texto ocupe toda a largura possível */
+  margin-top: 5px; /* Espaço entre o nome do perfil e o texto */
+}
+
+
+/* Estilo para o nome do perfil */
+.profile-name {
+  font-size: 3rex;
+  position: absolute; /* Posiciona o nome em relação ao contêiner pai */
+  top: 2.7%; /* Alinha verticalmente ao meio do contêiner pai */
+  left: 9.3%; /* Alinha horizontalmente ao meio do contêiner pai */
+  margin-top: -10px; /* Ajusta a posição verticalmente se necessário */
+  margin-left: -10px; /* Ajusta a posição horizontalmente se necessário */
+
+  transform: translate(0%, 0%); /* Ajusta o alinhamento para o centro exato */
+  color: #7eff05; /* Cor do texto (opcional, ajuste conforme necessário) */
+  font-weight: bold; /* Fonte em negrito (opcional, ajuste conforme necessário) */
+  white-space: nowrap; /* Garante que o texto não quebre para a próxima linha */
+  /* background-color: #7eff05; Fundo semitransparente para destacar o texto (opcional) */
+  padding: 2px 5px; /* Espaçamento ao redor do texto (opcional) */
+  border-radius: 5px; /* Bordas arredondadas ao redor do texto (opcional) */
+}
+
+/* Estilo para o layout em grid dos posts com 1 coluna */
+.posts-list-grid {
+  max-width: 800px; /* Limita a largura da tabela para 800px */
+  display: grid;
+  padding-top: 91px;
+  grid-template-columns: repeat(1, 1fr); /* Cria três colunas iguais */
+  gap: 18px; /* Espaçamento entre os itens do grid */
+  margin: 0 auto; /* Centraliza o grid dentro do contêiner */
+} 
+
+/* Abas Fixas no topo */
+.tab-container {
+  display: flex;
+  justify-content: center;
+  background-color: #540980b0; /* Fundo para todas as abas */
+  padding: 10px 0;
+  position: fixed;
+  top: 72px; /* Posiciona as abas abaixo do topo */
+  width: 100%;
+  max-width: 800px;
+  z-index: 1000;
+}
+
+.tab-button {
+  background-color: #540980b0; /* Todas as abas com fundo roxo semitransparente */
+  color: #ffffff; /* Cor do texto branco */
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab-button:hover {
+  background-color: #4b0082; /* Muda para um roxo mais escuro ao passar o mouse */
+}
+
+.tab-button.active {
+  background-color: #7eff05; /* Aba selecionada com fundo verde brilhante */
+  color: #540980; /* Cor do texto roxo quando selecionado */
+  font-weight: bold; /* Deixa a aba ativa em negrito */
+}
+
+.view-more-link {
+  color: #7eff05;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.view-more-link:hover {
+  text-decoration: underline;
+}
